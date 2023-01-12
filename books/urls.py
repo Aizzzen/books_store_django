@@ -21,7 +21,7 @@ from store.views import BooksViewSet
 
 router = SimpleRouter()
 
-router.register(r'book', BooksViewSet)
+router.register(r'books', BooksViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
