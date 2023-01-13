@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-mzv30v$pyn73@a+(6wd1s!r)$uyw$&=h0*jzz^eirm#b1&vw_a
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['http://127.0.0.1/']
 
 
 # Application definition
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
     'store.apps.StoreConfig',
 ]
 
@@ -50,12 +52,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 ROOT_URLCONF = 'books.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -136,3 +143,8 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.JSONParser',
     )
 }
+
+SOCIAL_AUTH_POSTGRES_JSONFIELD_ENABLED = True
+
+SOCIAL_AUTH_GITHUB_KEY = '7ef367b481ba7a2c7450'
+SOCIAL_AUTH_GITHUB_SECRET = '2d2fe93a1c115318da644dceb348625420efff46'
