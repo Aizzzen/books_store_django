@@ -21,6 +21,6 @@ class BooksSerializerTestCase(TestCase):
                 'name': 'Test Book-2',
                 'price': '50.00',
                 'author': 'Author-2'
-        },
+            },
         ]
         self.assertEqual(expected_data, data)
